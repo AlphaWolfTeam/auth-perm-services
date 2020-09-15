@@ -1,0 +1,32 @@
+version: '3.4'
+
+services:
+  auth-service:
+    container_name: "auth-service"
+    build: ./authentication-service
+    environment:
+      - PORT=80
+      - AUTH_CALLBACK_URL=/auth/callback
+      - AUTH_SECRET=J4W5_Sy5T3M
+      - SHRAGA_URL=http://13.79.7.3
+      - CLIENT_URL=http://permission-service:3000
+      - AUTH_TOKEN=kd-token
+    ports:
+      - 80:80
+  
+  permission-service:
+    container_name: "permission-service"
+    build: ./permission-service
+    environment:
+      - PORT=3000
+      - MONGO_URI=mongodb+srv://root:!23root!23@cluster0.eckmd.mongodb.net/users
+      - MONGO_COLLECTION_NAME=users
+      - CLIENT_URL=http://client-mock:4000
+    ports:
+      - 3000:3000
+  
+  client-mock:
+    container_name: "client-mock"
+    build: ./client-mock
+    ports:
+      - 4000:4000

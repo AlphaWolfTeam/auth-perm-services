@@ -1,0 +1,19 @@
+{
+  "name": "auth-perm-services",
+  "version": "1.0.0",
+  "description": "Jaws - Auth and permission microservices",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlphaWolfTeam/auth-perm-services.git"
+  },
+  "author": "Alpha Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlphaWolfTeam/auth-perm-services/issues"
+  },
+  "homepage": "https://github.com/AlphaWolfTeam/auth-perm-services#readme"
+}

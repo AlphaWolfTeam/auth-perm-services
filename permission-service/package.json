@@ -1,0 +1,30 @@
+{
+  "name": "permission-service",
+  "version": "0.0.1",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "start": "node --async-stack-traces ./dist/index.js",
+    "build": "tsc",
+    "dev": "npm run build && npm start",
+    "dev:build": "tsc --watch",
+    "dev:start": "nodemon ./dist/index.js"
+  },
+  "author": "Alpha Team",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "env-var": "^6.3.0",
+    "events": "^3.2.0",
+    "express": "^4.17.1",
+    "express-http-proxy": "^1.6.2",
+    "helmet": "^4.1.1",
+    "mongoose": "^5.10.5"
+  },
+  "devDependencies": {
+    "typescript": "3.4.3",
+    "@types/node": "^14.10.1"
+  }
+}
