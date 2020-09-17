@@ -26,7 +26,7 @@
 * 1 = Admin user - Can edit content
 * 2 = Super user
 
-# API Access
+### API Access
 * Only user with permission type 2 can access the api's endpoints
 
 ## Request & Response Examples
