@@ -15,9 +15,12 @@ const UserSchema = new mongoose.Schema({
     },
     permission: {
         type: Number,
-        required: true
+        required: true,
+        min: 0,
+        max: 2,
+        integer: true
     }
-});
+}, { versionKey: false });
 
 const UserModel = mongoose.model<IUser & mongoose.Document>(config.mongo.CollectionName, UserSchema);
 

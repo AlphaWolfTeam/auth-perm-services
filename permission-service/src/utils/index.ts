@@ -13,3 +13,7 @@ export const wrapController = (func: (req: Request, res: Response, next?: NextFu
         func(req, res, next).catch(next);
     };
 };
+
+export const permissionNumRangeCheck = (permission: Number) => {
+    return (Number.isInteger(permission) && permission >= 0 && permission <= 2)
+}

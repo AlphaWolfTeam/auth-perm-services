@@ -75,6 +75,7 @@ class Server {
     }
 
     private fwdUserDetailsMiddleware(req: any, _res: express.Response, next: express.NextFunction) {
+        console.log({ userConnected: req.user })
         const { adfsId, name } = req.user;
         req.body["currentUser"] = { adfsId, name };
         next();
