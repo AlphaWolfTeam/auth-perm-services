@@ -4,7 +4,7 @@ import * as bodyParser from 'body-parser';
 import * as helmet from 'helmet';
 
 import { once } from 'events';
-import { errorMiddleware } from './error';
+import { errorMiddleware } from '../utils/error';
 import appRouter from './router';
 
 class Server {

@@ -1,6 +1,6 @@
 import { IUser } from './interface';
 import UserModel from './model'
-import { permissionNumRangeCheck } from '../utils'
+import { permissionNumRangeCheck } from '../../utils'
 
 export class AppManager {
     static getUserDetails(adfsId: String) {
@@ -49,8 +49,6 @@ export class AppManager {
             return false;
         }
     }
-
-
 
 }
 

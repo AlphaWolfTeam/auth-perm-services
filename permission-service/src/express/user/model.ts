@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 
 import { IUser } from './interface';
-import config from '../config';
+import config from '../../config';
 
 const UserSchema = new mongoose.Schema({
     adfsId: {
