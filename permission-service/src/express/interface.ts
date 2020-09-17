@@ -1,5 +1,5 @@
 export interface IUser {
     adfsId: string;
-    name: string;
+    name?: string;
     permission: Number;
 }

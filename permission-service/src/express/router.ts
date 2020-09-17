@@ -13,7 +13,7 @@ appRouter.use('/api', AppController.apiPermissionCheckMiddleware)
 
 appRouter.get('/',ValidateRequest(getUserPermissionSchema), proxy(config.service.clientURL));
 
-appRouter.get('/api/getcurrentuser', async (req: express.Request, res: express.Response) => {
+appRouter.get('/api/currentuser', async (req: express.Request, res: express.Response) => {
     AppController.getUserDetails(req.body.currentUser.adfsId, res)
 });
 
