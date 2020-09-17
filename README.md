@@ -11,6 +11,14 @@
 | PUT /api/edituser       | Edit user permission data |
 | DELETE /api/deleteuser       | Delete permission user |
 
+### API Access
+! Only user with permission type 2 can access the api's endpoints
+
+## Permission Field Options
+
+* 0 = Default viewer user - Access to system proxy to client
+* 1 = Admin user - Can edit content
+* 2 = Super user
 
 ## Permission User Interface
 
@@ -20,14 +28,7 @@
         permission: Number
     }
 
-## Permission Field Options
 
-* 0 = Default viewer user - Access to system proxy to client
-* 1 = Admin user - Can edit content
-* 2 = Super user
-
-### API Access
-* Only user with permission type 2 can access the api's endpoints
 
 ## Request & Response Examples
   
