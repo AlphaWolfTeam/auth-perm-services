@@ -19,7 +19,6 @@ appRouter.use('/api/user', userRouter);
 appRouter.use('/isAlive', (_req: express.Request, res: express.Response) => {
     res.status(200).send('alive');
 });
-
 appRouter.use('*', (_req, res) => {
     res.status(404).send('Invalid Route');
 });

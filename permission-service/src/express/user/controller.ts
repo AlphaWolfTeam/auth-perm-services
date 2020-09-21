@@ -10,8 +10,13 @@ export default class AppController {
                 const [permissionUserObj] = permissionUserData;
                 req.body["currentUser"] = permissionUserObj.toObject();
                 next();
-            } res.status(401).send("User unauthorized in the system");
-        } res.status(401).send("User unauthorized in the system");
+                return true;
+            }
+            res.status(401).send("User unauthorized in the system");
+            return false;
+        }
+        res.status(401).send("User unauthorized in the system");
+        return false;
     }
 
     static async apiPermissionCheckMiddleware(req: express.Request, res: express.Response, next: express.NextFunction) {
