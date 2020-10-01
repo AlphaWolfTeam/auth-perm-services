@@ -15,12 +15,14 @@ export const wrapController = (func: (req: Request, res: Response, next?: NextFu
 };
 
 export const permissionNumRangeCheck = (permission: number[]) => {
-    return permission.every((value) => { return Number.isInteger(value) && value >= 0 && value <= 17 });
+    if (permission && Array.isArray(permission)) {
+        return permission.every((value) => { return Number.isInteger(value) && value >= 0 && value <= 17 });
+    } return false;
 }
 
 export const apiPermissionCheck = async (req: Request, requestedPermissionId: number | string) => {
     const parsedPermissionId = typeof requestedPermissionId == 'string' ? parseInt(requestedPermissionId) : requestedPermissionId;
-    if (req.body.currentUser.permission.includes(parsedPermissionId)) {
-        return true;
+    if (req.body.currentUser.permission && Array.isArray(req.body.currentUser.permission)) {
+        return req.body.currentUser.permission.includes(parsedPermissionId);
     } return false;
 }

@@ -8,7 +8,6 @@ import ValidateRequest from '../utils/joi';
 import config from '../config'
 import { getUserPermissionSchema } from './validator.schema';
 import { errorMiddleware } from '../utils/error';
-// import appRouter from './router';
 import userRouter from './router'
 import PermissionMiddleware from './middleware';
 

@@ -1,12 +1,11 @@
 import { Request, Response } from 'express';
 import { AppManager } from './manager';
 import { apiPermissionCheck } from '../utils/index'
-
 import config from '../config/index'
 const { userPermission } = config;
 
 export default class AppController {
-
+    
     static async getAllUsers(req: Request, res: Response) {
         if (await apiPermissionCheck(req, userPermission.getAllUsersPermissionId)) {
             const usersList = await AppManager.getAllUsers();
@@ -57,7 +56,7 @@ export default class AppController {
                 res.status(201).json({ status: "successfull", Newuser: req.body.newUser });
                 return true;
             }
-            res.status(400).json({ status: "failure. Check object structure" });
+            res.status(400).json({ status: "failure" });
             return false;
         }
         res.status(401).send('API Access denied: No permissions for this operation')
