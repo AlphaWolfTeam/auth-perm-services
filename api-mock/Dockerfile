@@ -9,3 +9,4 @@ COPY . .
 CMD npm run dev
 
 EXPOSE 4000
+EXPOSE 5000

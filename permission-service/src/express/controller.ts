@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
 import { AppManager } from './manager';
-import { apiPermissionCheck } from '../../utils/index'
+import { apiPermissionCheck } from '../utils/index'
 
-import config from '../../config/index'
+import config from '../config/index'
 const { userPermission } = config;
 
 export default class AppController {
