@@ -14,7 +14,7 @@ const config = {
         secret: process.env.AUTH_SECRET || env.get('AUTH_SECRET').required().asString(),
         daysExpires: 3,
         token: process.env.AUTH_TOKEN || env.get('AUTH_TOKEN').required().asString(),
-      }
+    }
     
 };
 

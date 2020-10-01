@@ -14,11 +14,8 @@ const UserSchema = new mongoose.Schema({
         required: false
     },
     permission: {
-        type: Number,
-        required: true,
-        min: 0,
-        max: 2,
-        integer: true
+        type: [Number],
+        required: true
     }
 }, { versionKey: false });
 

@@ -22,6 +22,13 @@ services:
       - MONGO_URI=mongodb+srv://root:!23root!23@cluster0.eckmd.mongodb.net/users
       - MONGO_COLLECTION_NAME=users
       - CLIENT_URL=http://client-mock:4000
+      - GENERAL_ACCESS_PERMISSION_ID=0
+      - GET_ALL_USERS_PERMISSION_ID=1
+      - GET_CURRENT_USER_PERMISSION_ID=2
+      - GET_USER_BY_ID_PERMISSION_ID=3
+      - CREATE_USER_PERMISSION_ID=4
+      - UPDATE_USER_PERMISSION_ID=5
+      - DELETE_USER_PERMISSION_ID=6
     ports:
       - 3000:3000
   

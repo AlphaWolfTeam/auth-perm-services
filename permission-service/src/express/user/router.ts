@@ -3,24 +3,16 @@ import AppController from './controller'
 
 const userRouter = express.Router();
 
-userRouter.get('/', async (req: express.Request, res: express.Response) => {
-    AppController.getUserDetails(req.body.currentUser.adfsId, res);
-});
+userRouter.get('/current', AppController.getCurrentUser);
 
-userRouter.get('/:id', async (req: express.Request, res: express.Response) => {
-    AppController.getUserDetails(req.params.id, res);
-});
+userRouter.get('/', AppController.getAllUsers);
 
-userRouter.post('/', async (req: express.Request, res: express.Response) => {
-    AppController.addNewUser(req.body.newUser, res);
-});
+userRouter.get('/:id', AppController.getUserById);
 
-userRouter.put('/', (req: express.Request, res: express.Response) => {
-    AppController.updateUser(req.body.userDetails, res);
-});
+userRouter.post('/', AppController.createUser);
 
-userRouter.delete('/', (req: express.Request, res: express.Response) => {
-    AppController.deleteUser(req.body.adfsId, res);
-});
+userRouter.put('/', AppController.updateUser);
+
+userRouter.delete('/:id', AppController.deleteUser);
 
 export default userRouter;

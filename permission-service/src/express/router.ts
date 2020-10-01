@@ -4,23 +4,19 @@ import config from '../config'
 const proxy = require("express-http-proxy");
 
 import { getUserPermissionSchema } from './validator.schema';
-import AppController from './user/controller'
 import userRouter from './user/router'
+import PermissionMiddleware from './user/middleware'
 
 const appRouter = express.Router();
 
-appRouter.use('*', AppController.permissionCheckMiddleware);
-appRouter.use('/api', AppController.apiPermissionCheckMiddleware);
+appRouter.use('*', PermissionMiddleware.generalAccess);
 
-appRouter.get('/',ValidateRequest(getUserPermissionSchema), proxy(config.service.clientURL));
-
-appRouter.use('/api/user', userRouter);
+appRouter.use('/permission/api/user', userRouter);
 
 appRouter.use('/isAlive', (_req: express.Request, res: express.Response) => {
     res.status(200).send('alive');
 });
-appRouter.use('*', (_req, res) => {
-    res.status(404).send('Invalid Route');
-});
+
+appRouter.all('*', ValidateRequest(getUserPermissionSchema), proxy(config.service.clientURL));
 
 export default appRouter;
