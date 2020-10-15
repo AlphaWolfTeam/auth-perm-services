@@ -1,4 +1,4 @@
-# SchemaApi
+# UserAPI
 
 ## HTTP Requests
 
