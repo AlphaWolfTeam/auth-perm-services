@@ -30,7 +30,7 @@ class Server {
 
         app.use('*', PermissionMiddleware.generalAccess);
 
-        app.use('/api/permission', userRouter);
+        app.use('/api/user', userRouter);
         app.all('/api/schema', ValidateRequest(getUserPermissionSchema), proxy(config.service.schemaApiUrl));
         app.all('/api/instance', ValidateRequest(getUserPermissionSchema), proxy(config.service.instanceApiUrl));
 

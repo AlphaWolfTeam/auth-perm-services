@@ -70,7 +70,7 @@ export default class AppController {
                 res.status(200).json(updatedUser);
                 return true;
             }
-            res.status(400).json({ status: "failure. No such user" });
+            res.status(400).json({ status: "failure. Bad Request form or no such user" });
             return false;
         }
         res.status(401).send('API Access denied: No permissions for this operation')

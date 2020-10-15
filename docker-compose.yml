@@ -19,7 +19,7 @@ services:
     build: ./permission-service
     environment:
       - PORT=3000
-      - MONGO_URI=mongodb+srv://root:!23root!23@cluster0.eckmd.mongodb.net/users
+      - MONGO_URI=mongodb+srv://root:root@cluster0.eckmd.mongodb.net/users
       - MONGO_COLLECTION_NAME=users
       - SCHEMA_API_HOST=schema-api-mock:4000
       - INSTANCE_API_HOST=instance-api-mock:5000
