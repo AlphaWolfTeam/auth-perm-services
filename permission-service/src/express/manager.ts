@@ -11,13 +11,13 @@ export class AppManager {
         return UserModel.find({}, { '_id': 0 });
     }
 
-    static async createUser(user: Omit<IUser, "name">) {
+    static async createUser(user: IUser) {
         if (permissionNumRangeCheck(user.permission)) {
-            const newUser = new UserModel(user);
+            const newUser = new UserModel({ adfsId: user.adfsId, name: user.name, permission: user.permission });
             try {
                 await newUser.save();
             } catch (error) {
-                console.error("MongoError: Failed saving new user");
+                console.error("MongoError: Failed saving new user. Maybe user already exists");
                 return false;
             }
             console.log(`Mongo: New user (${user.adfsId}) saved to collection`);
@@ -25,9 +25,9 @@ export class AppManager {
         } return false;
     }
 
-    static async updateUser(user: Omit<IUser, "name">) {
+    static async updateUser(user: IUser) {
         if (permissionNumRangeCheck(user.permission)) {
-            const res = await UserModel.findOneAndUpdate({ adfsId: user.adfsId }, user, {
+            const res = await UserModel.findOneAndUpdate({ adfsId: user.adfsId }, { adfsId: user.adfsId, name: user.name, permission: user.permission }, {
                 new: true,
                 rawResult: true
             });

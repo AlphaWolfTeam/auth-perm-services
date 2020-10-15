@@ -52,8 +52,8 @@ export default class AppController {
 
     static async createUser(req: Request, res: Response) {
         if (await apiPermissionCheck(req, userPermission.createUserPermissionId)) {
-            if (await AppManager.createUser(req.body.newUser)) {
-                res.status(201).json({ status: "successfull", Newuser: req.body.newUser });
+            if (await AppManager.createUser(req.body)) {
+                res.status(201).json({ status: "successfull", Newuser: {adfsId: req.body.adfsId, name: req.body.name, permission: req.body.permission} });
                 return true;
             }
             res.status(400).json({ status: "failure" });
@@ -65,7 +65,7 @@ export default class AppController {
 
     static async updateUser(req: Request, res: Response) {
         if (await apiPermissionCheck(req, userPermission.updateUserPermissionId)) {
-            const updatedUser = await AppManager.updateUser(req.body.userDetails);
+            const updatedUser = await AppManager.updateUser(req.body);
             if (updatedUser) {
                 res.status(200).json(updatedUser);
                 return true;

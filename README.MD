@@ -27,31 +27,34 @@
 ### GET /api/user
 
 Response body:
-[
+
     {
-        "adfsId": "t12345678@deadpool.com",
-        "name": "Wade Winston Wilson",
-        "permission": [
-            0,
-            1,
-            2,
-            4,
-            3,
-            5
-        ]
-    },
-    {
-        "adfsId": "t69698854@jarvis.com",
-        "name": "Toni Stark",
-        "permission": [
-            0,
-            2,
-            4,
-            6,
-            8
+        [
+            {
+                "adfsId": "t12345678@deadpool.com",
+                "name": "Wade Winston Wilson",
+                "permission": [
+                    0,
+                    1,
+                    2,
+                    4,
+                    3,
+                    5
+                ]
+            },
+            {
+                "adfsId": "t69698854@jarvis.com",
+                "name": "Toni Stark",
+                "permission": [
+                    0,
+                    2,
+                    4,
+                    6,
+                    8
+                ]
+            }
         ]
     }
-]
     
 ### GET /api/user/[id]
 
@@ -74,19 +77,19 @@ Response body:
 
 Request body:
 
-  "newUser": {
-      "adfsId": "a123",
-      "name": "rafiki",
-      "permission": [0, 8, 10]
-  }
+    {
+        "adfsId": "a123",
+        "name": "rafiki",
+        "permission": [0, 8, 10]
+    }
     
 ### PUT /api/user/[id]
 
 Request body:
 
-  "userDetails": {
-      "adfsId": "a123",
-      "name": "new rafiki",
-      "permission": [0, 3]
-  }
+    {
+        "adfsId": "a123",
+        "name": "roberto cavalli",
+        "permission": [0, 6, 9]
+    }
 
